@@ -7,17 +7,17 @@ The quadcopter will utilize computer vision and slam for navigation and mapping.
 Arudpilot will also be used, though the GPS would not work for indoor localization
 
 # Components:
--- F450 quadcopter frame
--- Flight computer (RaspberryPi 4B 4Gb)
--- Flight computer (Speedybee F405 V3 stack)
--- Pi HQ camera (with 6mm cs mount)
--- Binocular camera module (for depth and as the front camera)
--- Slamtec RPLidar C1 (for mapping)
--- 4 BLDC (1000 kv)
--- 10x47 propellers
--- 3A power bank (powersupply for the flight computer)
--- 2200 mah 3S lipo battery (for the flight controller and the motors)
--- Mobile Wifi module
+- F450 quadcopter frame
+- Flight computer (RaspberryPi 4B 4Gb)
+- Flight computer (Speedybee F405 V3 stack)
+- Pi HQ camera (with 6mm cs mount)
+- Binocular camera module (for depth and as the front camera)
+- Slamtec RPLidar C1 (for mapping)
+- 4 BLDC (1000 kv)
+- 10x47 propellers
+- 3A power bank (powersupply for the flight computer)
+- 2200 mah 3S lipo battery (for the flight controller and the motors)
+- Mobile Wifi module
 
 # To do list:
 - [X] Test the cameras and the lidar module 
