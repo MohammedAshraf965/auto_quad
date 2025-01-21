@@ -21,10 +21,10 @@ Arudpilot will also be used, though the GPS would not work for indoor localizati
 
 # To do list:
 - [X] Test the cameras and the lidar module 
-- [] Create/Import the components' urdf
-- [] Visualize the model in gazebo
-- [] Implement SLAM (using slam_toolbox)
-- [] Test indoor mapping
-- [] Create the control directory
-- [] Test indoor navigation
-- [] ROS2 with ardupilot
+- [ ] Create/Import the components' urdf
+- [ ] Visualize the model in gazebo
+- [ ] Implement SLAM (using slam_toolbox)
+- [ ] Test indoor mapping
+- [ ] Create the control directory
+- [ ] Test indoor navigation
+- [ ] ROS2 with ardupilot
