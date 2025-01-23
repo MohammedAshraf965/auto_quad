@@ -17,6 +17,7 @@ Arudpilot will also be used, though the GPS would not work for indoor localizati
 - 10x47 propellers
 - 3A power bank (powersupply for the flight computer)
 - 2200 mah 3S lipo battery (for the flight controller and the motors)
+- 2 servo motors (for camera rotation)
 - Mobile Wifi module
 
 # To do list:
@@ -28,3 +29,7 @@ Arudpilot will also be used, though the GPS would not work for indoor localizati
 - [ ] Create the control directory
 - [ ] Test indoor navigation
 - [ ] ROS2 with ardupilot
+
+# Issues:
+- Publisher/Subscriber slows down when a node subscribes to topics with img_msgs
+- Imencode not found error when using compressed_img_msgs
