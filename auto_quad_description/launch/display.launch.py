@@ -50,5 +50,6 @@ def generate_launch_description():
         launch.actions.DeclareLaunchArgument(name='model', default_value=urdf, description='Path to the urdf model file'),
         robot_state_publisher_node,
         joint_state_publisher_node,
+        joint_state_publisher_gui_node,
         rviz_node
     ])
