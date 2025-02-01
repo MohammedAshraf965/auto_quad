@@ -33,3 +33,4 @@ Arudpilot will also be used, though the GPS would not work for indoor localizati
 # Issues:
 - Publisher/Subscriber slows down when a node subscribes to topics with img_msgs
 - Imencode not found error when using compressed_img_msgs
+- Lidar scan proportion to robot size in rviz2
