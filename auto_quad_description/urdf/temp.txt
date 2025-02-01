@@ -1,130 +1,62 @@
+    <!-- Base Link -->
+    <link name="base_link"/>
+    <joint name="base_to_world" type="fixed">
+        <parent link="base_link"/>
+        <child link="quad_frame"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+
+    
     <!-- ################################################################################
-         ################################## Propellers ##################################
+         #################################### LIDAR #####################################
          ################################################################################ -->
-    <link name="front_left_propeller">
+
+    <link name="lidar_link">
     <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-        <mesh filename="package://auto_quad_description/meshes/propeller.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://auto_quad_description/meshes/laser_link.stl" scale="0.01 0.01 0.01"/>
         </geometry>
         <material name="black">
-        <color rgba="0 0 0 1"/>
+        <color rgba="0 0 0 1"/> <!-- Black color -->
         </material>
     </visual>
     <collision>
         <geometry>
-        <cylinder length="0.005" radius="0.05"/>
+            <mesh filename="package://auto_quad_description/meshes/laser_link.stl" scale="0.01 0.01 0.01"/>
         </geometry>
     </collision>
     </link>
 
-    <joint name="front_left_propeller_joint" type="continuous">
-    <parent link="front_left_motor"/>
-    <child link="front_left_propeller"/>
-    <origin xyz="-0.3 1.24 0.5" rpy="1.5708 0 0"/> <!-- Adjust xyz for position -->
-    <axis xyz="0 1 0"/> <!-- Rotate around the Z axis -->
-    </joint>
-
-
-    <!-- Front Right Propeller -->
-    <link name="front_right_propeller">
-    <visual>
-        <origin xyz="1.28 -0.35 0.5" rpy="1.5708 0 0"/>
-        <geometry>
-        <mesh filename="package://auto_quad_description/meshes/propeller.stl" scale="0.01 0.01 0.01"/>
-        </geometry>
-        <material name="black">
-        <color rgba="0 0 0 1"/>
-        </material>
-    </visual>
-    <collision>
-        <geometry>
-        <cylinder length="0.005" radius="0.05"/>
-        </geometry>
-    </collision>
-    </link>
-
-    <joint name="front_right_propeller_joint" type="continuous">
-    <parent link="front_right_motor"/>
-    <child link="front_right_propeller"/>
-    <origin xyz="1.28 -0.35 0.5" rpy="1.5708 0 0"/> <!-- Adjust xyz for position -->
-    <axis xyz="0 0 1"/> <!-- Rotate around the Z axis -->
-    </joint>
-
-
-    <!-- Back Left Propeller -->
-    <link name="back_left_propeller">
-    <visual>
-        <origin xyz="-1.88 2.81 0.5" rpy="1.5708 0 0"/>
-        <geometry>
-        <mesh filename="package://auto_quad_description/meshes/propeller.stl" scale="0.01 0.01 0.01"/>
-        </geometry>
-        <material name="black">
-        <color rgba="0 0 0 1"/>
-        </material>
-    </visual>
-    <collision>
-        <geometry>
-        <cylinder length="0.005" radius="0.05"/>
-        </geometry>
-    </collision>
-    </link>
-
-    <joint name="back_left_propeller_joint" type="continuous">
-    <parent link="back_left_motor"/>
-    <child link="back_left_propeller"/>
-    <origin xyz="-1.88 2.81 0.5" rpy="1.5708 0 0"/> <!-- Adjust xyz for position -->
-    <axis xyz="0 0 1"/> <!-- Rotate around the Z axis -->
-    </joint>
-
-    <!-- Back Right Propeller -->
-    <link name="back_right_propeller">
-    <visual>
-        <origin xyz="-1.88 -0.35 0.5" rpy="1.5708 0 0"/>
-        <geometry>
-        <mesh filename="package://auto_quad_description/meshes/propeller.stl" scale="0.01 0.01 0.01"/>
-        </geometry>
-        <material name="black">
-        <color rgba="0 0 0 1"/>
-        </material>
-    </visual>
-    <collision>
-        <geometry>
-        <cylinder length="0.005" radius="0.05"/>
-        </geometry>
-    </collision>
-    </link>
-
-    <joint name="back_right_propeller_joint" type="continuous">
-    <parent link="back_right_motor"/>
-    <child link="back_right_propeller"/>
-    <origin xyz="-1.88 -0.35 0.5" rpy="1.5708 0 0"/> <!-- Adjust xyz for position -->
-    <axis xyz="0 0 1"/> <!-- Rotate around the Z axis -->
+    <joint name="lidar_joint" type="fixed">
+    <parent link="pi_case"/> <!-- Parent link (e.g., the robot's base) -->
+    <child link="lidar_link"/> <!-- Child link (the LiDAR) -->
+    <origin xyz="0.3 -0.48 0.32" rpy="0 0 0"/> <!-- Position the LiDAR 0.2m above the base -->
     </joint>
 
     <!-- ################################################################################
-         #################################### PI Case ###################################
+         ################################# Cameras ######################################
          ################################################################################ -->
 
-    <link name="pi_case">
+    <link name="front_camera_link">
     <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-        <mesh filename="package://auto_quad_description/meshes/pi_case.stl" scale="0.01 0.01 0.01"/>
+            <mesh filename="package://auto_quad_description/meshes/3d_stereo_camera.stl" scale="0.01 0.01 0.01"/>
         </geometry>
-        <material name="silver">
-        <color rgba="0.8 0.8 0.8 1"/>
+        <material name="black">
+            <color rgba="0 0 0 1"/> <!-- Black color -->
         </material>
     </visual>
     <collision>
-        <origin xyz="-0.5 0.47 0.21" rpy="0 0 -1.5708"/>
         <geometry>
-            <mesh filename="package://auto_quad_description/meshes/pi_case.stl" scale="0.01 0.01 0.01"/>
+            <mesh filename="package://auto_quad_description/meshes/3d_stereo_camera.stl" scale="0.01 0.01 0.01"/>
         </geometry>
     </collision>
     </link>
 
-    <joint name="pi_case_joint" type="fixed">
-    <parent link="base_link"/>
-    <child link="pi_case"/>
-    <origin xyz="-0.5 0.47 0.21" rpy="0 0 -1.5708"/> <!-- Adjust xyz for position -->
-    </joint>
+    <joint name="front_camera_joint" type="fixed">
+    <parent link="base_link"/> <!-- Parent link (e.g., the robot's base) -->
+    <child link="front_camera_link"/> <!-- Child link (the stereo camera) -->
+    <origin xyz="0.35 0 0.25" rpy="1.5708 0 1.5708"/> <!-- Position the camera 0.2m forward and 0.3m above the base -->
+    </joint>    

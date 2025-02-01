@@ -1,11 +1,33 @@
 <?xml version="1.0"?>
-<robot name="auto_quad">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-    <!-- Odometry -->
-    <link name="odom_link"/>
-    <joint name="odom_join" type="fixed">
+    <xacro:include filename="inertial_macros.xacro"/>
+
+    <material name="black">
+        <color rgba="0 0 0 1"/>
+    </material>
+
+    <material name="white">
+        <color rgba="1 1 1 1"/>
+    </material>
+
+    <material name="red">
+        <color rgba="1 0 0 1"/>
+    </material>
+
+    <material name="green">
+        <color rgba="0 1 0 1"/>
+    </material>
+
+    <material name="blue">
+        <color rgba="0 0 1 1"/>
+    </material>
+
+    <!-- Base Link -->
+    <link name="base_link"/>
+    <joint name="base_to_world" type="fixed">
         <parent link="base_link"/>
-        <child link="odom_link"/>
+        <child link="quad_frame"/>
         <origin xyz="0 0 0" rpy="0 0 0"/>
     </joint>
 
@@ -13,7 +35,7 @@
          #################################### Frame #####################################
          ################################################################################ -->
 
-    <link name="base_link">
+    <link name="quad_frame">
         <!-- <inertial>
             <mass value="1.0"/>
             <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -273,32 +295,5 @@
     <origin xyz="-0.49 0.5 0.21" rpy="0 0 0"/> <!-- Adjust xyz for position -->
     </joint>
 
-    <!-- ################################################################################
-         #################################### LIDAR #####################################
-         ################################################################################ -->
-
-    <link name="lidar_link">
-    <visual>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <geometry>
-        <mesh filename="package://auto_quad_description/meshes/laser_link.stl" scale="0.01 0.01 0.01"/>
-        </geometry>
-        <material name="black">
-        <color rgba="0 0 0 1"/> <!-- Black color -->
-        </material>
-    </visual>
-    <collision>
-        <geometry>
-            <mesh filename="package://auto_quad_description/meshes/laser_link.stl" scale="0.01 0.01 0.01"/>
-        </geometry>
-    </collision>
-    </link>
-
-    <joint name="lidar_joint" type="fixed">
-    <parent link="base_link"/> <!-- Parent link (e.g., the robot's base) -->
-    <child link="lidar_link"/> <!-- Child link (the LiDAR) -->
-    <origin xyz="-0.18 0.05 0.51" rpy="0 0 0"/> <!-- Position the LiDAR 0.2m above the base -->
-    <!-- <origin xyz="0.3 -0.48 0.32" rpy="0 0 0"/> -->
-    </joint>
-
 </robot>
+
