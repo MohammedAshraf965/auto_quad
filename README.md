@@ -10,27 +10,35 @@ Arudpilot will also be used, though the GPS would not work for indoor localizati
 - F450 quadcopter frame
 - Flight computer (RaspberryPi 4B 4Gb)
 - Flight computer (Speedybee F405 V3 stack)
-- Pi HQ camera (with 6mm cs mount)
+- Pi camera (optional)
 - Binocular camera module (for depth and as the front camera)
 - Slamtec RPLidar C1 (for mapping)
 - 4 BLDC (1000 kv)
 - 10x47 propellers
 - 3A power bank (powersupply for the flight computer)
 - 2200 mah 3S lipo battery (for the flight controller and the motors)
-- 2 servo motors (for camera rotation)
-- Mobile Wifi module
+- 2 servo motors (for camera rotation) (optional)
+- Mobile Wifi module (optional)
+
+
+
+Some ros2 nodes will run on the flight computer (in our case the raspberry pi), and the remaining will run on the local machine (the computationally intensive nodes)
+
+# For the local machine
+
+# For the flight computer
+The flight computer will be responsible for publishing the lidar and the stereo camera data. These will be processed by the local machine for visualization, navigation commands, and SLAM
 
 # To do list:
 - [X] Test the cameras and the lidar module 
-- [ ] Create/Import the components' urdf
+- [X] Create/Import the components' urdf
 - [ ] Visualize the model in gazebo
-- [ ] Implement SLAM (using slam_toolbox)
-- [ ] Test indoor mapping
+- [X] Implement SLAM
+- [X] Test indoor mapping
 - [ ] Create the control directory
 - [ ] Test indoor navigation
 - [ ] ROS2 with ardupilot
 
 # Issues:
-- Publisher/Subscriber slows down when a node subscribes to topics with img_msgs
-- Imencode not found error when using compressed_img_msgs
-- Lidar scan proportion to robot size in rviz2
+- Publisher/Subscriber slows down when a node subscribes to topics with img_msgs (fixed)
+- Imencode not found error when using compressed_img_msgs (fixed)
