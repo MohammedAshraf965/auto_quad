@@ -20,6 +20,7 @@ Arudpilot will also be used, though the GPS would not work for indoor localizati
 - 2 servo motors (for camera rotation) (optional)
 - Mobile Wifi module (optional)
 
+![Image Alt Text](media/assembly.jpg)
 
 
 Some ros2 nodes will run on the flight computer (in our case the raspberry pi), and the remaining will run on the local machine (the computationally intensive nodes)
