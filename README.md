@@ -30,6 +30,8 @@ Some ros2 nodes will run on the flight computer (in our case the raspberry pi), 
 # For the flight computer
 The flight computer will be responsible for publishing the lidar and the stereo camera data. These will be processed by the local machine for visualization, navigation commands, and SLAM
 
+![GIF Alt Text](media/cartographer.gif)
+
 # To do list:
 - [X] Test the cameras and the lidar module 
 - [X] Create/Import the components' urdf
