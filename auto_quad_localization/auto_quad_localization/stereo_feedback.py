@@ -7,7 +7,7 @@ from cv_bridge import CvBridge
 
 class StereoSplitter(Node):
     def __init__(self):
-        super().__init__('stereo_splitter')
+        super().__init__('stereo_feedback')
         # Subscribe to the compressed stereo image topic
         self.subscription = self.create_subscription(
             CompressedImage,

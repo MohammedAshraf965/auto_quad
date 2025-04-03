@@ -8,7 +8,7 @@ def generate_launch_description():
             executable='v4l2_camera_node',
             name='stereo_camera',
             parameters=[
-                {'video_device': '/dev/video3'},
+                {'video_device': '/dev/video4'},
                 {'image_size': [1280, 480]}
             ]
         ),
@@ -16,6 +16,12 @@ def generate_launch_description():
             package='auto_quad_localization',
             executable='stereo_feedback',
             name='stereo_feedback',
+            output='screen'
+        ),
+       Node(
+            package='auto_quad_localization',
+            executable='camera_calibration_service',
+            name='camera_calibration_service',
             output='screen'
         ),
         Node(
@@ -92,4 +98,4 @@ def generate_launch_description():
         #     name='rviz2',
         #     output='screen'
         # )
-    ])
+])
