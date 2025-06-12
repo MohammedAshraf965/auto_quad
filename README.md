@@ -1,6 +1,3 @@
-# auto_quad
-This repo will be used for auto_quad, an **autonomous quadcopter** that can be used for indoor and outdoor navigation and mapping
-
 # How it works
 The quadcopter will utilize computer vision and slam for navigation and mapping. Since the pi 4B would not be able to run cv algorithms in real-time, it will publish the image as messages that can be subscribed from by the local machine that is powerful enough to run cv. Also, the mapping will be computed on the local machine, meaning that the pi will publish the readings it gathers, which will then be computed in the local machine
 
