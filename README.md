@@ -1,8 +1,6 @@
 # How it works
 The quadcopter will utilize computer vision and slam for navigation and mapping. Since the pi 4B would not be able to run cv algorithms in real-time, it will publish the image as messages that can be subscribed from by the local machine that is powerful enough to run cv. Also, the mapping will be computed on the local machine, meaning that the pi will publish the readings it gathers, which will then be computed in the local machine
 
-Arudpilot will also be used, though the GPS would not work for indoor localization
-
 # Components:
 - F450 quadcopter frame
 - Flight computer (RaspberryPi 4B 4Gb)
