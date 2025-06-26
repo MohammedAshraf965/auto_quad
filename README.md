@@ -5,7 +5,6 @@ The quadcopter will utilize computer vision and slam for navigation and mapping.
 - F450 quadcopter frame
 - Flight computer (RaspberryPi 4B 4Gb)
 - Flight computer (Speedybee F405 V3 stack)
-- Pi camera (optional)
 - Binocular camera module (for depth and as the front camera)
 - Slamtec RPLidar C1 (for mapping)
 - 4 BLDC (1000 kv)
